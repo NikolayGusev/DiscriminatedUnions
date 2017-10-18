@@ -1,0 +1,1 @@
+﻿<#@ include file="..\DiscriminatedUnionsT4\DiscriminatedUnions.ttinclude" #>

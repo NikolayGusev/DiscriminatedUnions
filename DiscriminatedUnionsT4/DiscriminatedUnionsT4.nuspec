@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>T4DU</id>
+    <version>1.0.0-beta</version>
+    <authors>Nikolay Gusev</authors>
+    <owners>Nikolay Gusev</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/NikolayGusev/DiscriminatedUnions/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/NikolayGusev/DiscriminatedUnions</projectUrl>
+    <description>T4DU is a T4 template that generates discriminated cases for your C# projects.</description>
+    <summary>T4DU is a T4 template that generates discriminated cases for your C# projects.</summary>
+    <language>en-US</language>
+    <tags>t4 discriminated unions sum type algebraic data types tagged unions</tags>
+    <!-- <dependencies> -->
+      <!-- <dependency id="T4MVCExtensions" version="4.0.0" /> -->
+    <!-- </dependencies> -->
+  </metadata>
+</package>

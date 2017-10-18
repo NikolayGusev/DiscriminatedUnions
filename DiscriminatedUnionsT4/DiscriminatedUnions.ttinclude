@@ -1,0 +1,43 @@
+﻿<#@ template hostspecific="true" language="C#" #>
+<#@ output extension="designer.cs"#> 
+<#@ assembly name="System.Core" #>
+<#@ assembly name="C:\Projects\DiscriminatedUnions\DiscriminatedUnionsGen\bin\Debug\DiscriminatedUnionsGen.dll" #>
+<#@ import namespace="DiscriminatedUnionsGen" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Linq" #>
+<# 
+string resultMessage;
+try 
+{
+	resultMessage = 
+		string.Join(Environment.NewLine,
+		RoslynAnalyzer
+			.ReadUnions(this.Host.ResolveAssemblyReference("$(ProjectPath)"))
+			.Select(TextGenerators.GenerateUnion));
+}
+catch (System.Reflection.ReflectionTypeLoadException ex)
+{
+    StringBuilder sb = new StringBuilder();
+    foreach (Exception exSub in ex.LoaderExceptions)
+    {
+        sb.AppendLine(exSub.ToString());
+        FileNotFoundException exFileNotFound = exSub as FileNotFoundException;
+        if (exFileNotFound != null)
+        {                
+            if(!string.IsNullOrEmpty(exFileNotFound.FusionLog))
+            {
+                sb.AppendLine("Fusion Log:");
+                sb.AppendLine(exFileNotFound.FusionLog);
+            }
+        }
+        sb.AppendLine();
+    }
+    resultMessage = sb.ToString();
+}
+catch (Exception ex)
+{
+	resultMessage = ex.ToString();
+}
+#>
+<#= resultMessage #>

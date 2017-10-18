@@ -1,0 +1,22 @@
+﻿TODO:
+
+
+NuGet Package
+
+.NET Standard compatibility
+Cleanup app.config mess
+filter out properties with 'set' method?
+less constraints on [UnionBase] class - errors will become more obvious to the user after he sees compilation errors
+Console app. 1. Target csproj, 2. Output filepath
+Flags to turn on/off: 1. GetHashCode/Equals/==&!= gen. 2. Constructor gen (yes/no, return concrete/base)
+Write a readme
+Fix whitespaces between lines?
+Get usings via symbol, not syntax (and property types too then) 
+	- https://stackoverflow.com/questions/29176579/get-a-list-of-referenced-types-within-a-project-with-roslyn
+
+
+build server instructions:
+* .NET 4.6
+* MS Build Tools 2015
+* gacutil -i Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll
+* gacutil -i Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll
