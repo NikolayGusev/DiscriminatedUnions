@@ -45,6 +45,8 @@ Console.WriteLine(area); // 20
 3. Record type semantics: constructor, static constructors available from base class (e.g. Shape.Rectange(...)), Equals, GetHashCode() and ==,!= operators.
 
 ## Notes
+By default T4DU assumes that your project directory and packages directory are in the same solution directory. If this is not the case you should manually modify UnionsGen.tt to reference .ttinclude file from appropriate packages folder.
+
 Base class must have [UnionBase] attribute. It is used by T4DU to find it. Cases must be located in the same assembly and derive from base class.
 
 Make sure that base class is marked as abstract. Also base class and case classes must have partial keyword, so code generator can extend their definitions.
@@ -52,3 +54,5 @@ Make sure that base class is marked as abstract. Also base class and case classe
 Note that you don't have to create constructors, T4DU generates that for you (including static ones like Shape.Rectangle(width, height)! Also you get Equals, GetHashCode and ==, != operators for free.
 
 To avoid extension of the hierarchy from other assemblies, base class has **internal abstract void Seal()** method. This method is implemented by generated case classes (with noop body) but cannot be implemented by other assemblies since it is internal. Also case classes are marked with **sealed** keyword for similar reasons.
+
+While T4DU uses Roslyn which requires .NET 4.6, T4DU doesn't add any .NET 4.6 assembly references to your code. This means that you can generate discriminated unions in a .NET 3.5+ project.
