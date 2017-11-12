@@ -4,6 +4,8 @@
 ## Basic usage
 
 #### 1. Install T4DU package from NuGet. 
+Package is available here: https://www.nuget.org/packages/T4DU
+
 This will add UnionsGen.tt to your project. This is a regular T4 file ([Official T4 Docs](https://docs.microsoft.com/ru-ru/visualstudio/modeling/code-generation-and-t4-text-templates)). Also your project will get a reference to assembly containing [UnionBase] attribute.
 #### 2. Write your discriminated unions:
 ```cs
